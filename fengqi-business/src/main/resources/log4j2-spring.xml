@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Properties>
+        <!-- 定义日志文件的路径 -->
+        <Property name="LOG_PATH">logs</Property>
+        <!-- 定义日志文件的名称 -->
+        <Property name="LOG_FILE_NAME">app</Property>
+        <!-- 定义日志的格式 -->
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Property>
+    </Properties>
+    
+    <Appenders>
+        <!-- 控制台输出 -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+        
+        <!-- 按日期滚动的文件输出 -->
+        <RollingFile name="RollingFile" fileName="${LOG_PATH}/${LOG_FILE_NAME}.log" 
+                     filePattern="${LOG_PATH}/${LOG_FILE_NAME}-%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+            <!-- 保留30天的日志文件 -->
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+        
+        <!-- 错误日志单独输出到文件 -->
+        <RollingFile name="ErrorFile" fileName="${LOG_PATH}/${LOG_FILE_NAME}-error.log" 
+                     filePattern="${LOG_PATH}/${LOG_FILE_NAME}-error-%d{yyyy-MM-dd}.log">
+            <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+            <!-- 保留30天的错误日志文件 -->
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+    </Appenders>
+    
+    <Loggers>
+        <!-- 默认根日志配置 -->
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+            <AppenderRef ref="ErrorFile"/>
+        </Root>
+        
+        <!-- 可以为特定包配置不同的日志级别 -->
+        <!-- 例如，配置Spring框架的日志级别为WARN -->
+        <Logger name="org.springframework" level="WARN" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+        </Logger>
+        
+        <!-- 配置MyBatis的日志级别 -->
+        <Logger name="com.baomidou.mybatisplus" level="DEBUG" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+        </Logger>
+        
+        <!-- 配置项目自己的包的日志级别 -->
+        <Logger name="com.fengqi.example" level="INFO" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+            <AppenderRef ref="ErrorFile"/>
+        </Logger>
+    </Loggers>
+</Configuration>

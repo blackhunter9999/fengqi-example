@@ -1,0 +1,188 @@
+# 基础配置文件
+# 设置默认激活的环境为开发环境
+spring:
+  profiles:
+    active: dev
+
+  # 国际化配置 (公共配置)
+  messages:
+    # 指定国际化资源文件的基础名称
+    basename: i18n/messages
+    # 设置资源文件编码格式
+    encoding: UTF-8
+
+---
+# 开发环境配置
+spring:
+  config:
+    activate:
+      on-profile: dev
+  
+  datasource:
+    url: jdbc:mysql://localhost:3306/test_dev?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  # SQL初始化配置
+  sql:
+    init:
+      mode: always  # 总是执行初始化脚本
+      schema-locations: classpath:schema.sql  # 指定schema.sql文件的位置
+  # 国际化配置
+  messages:
+    # 设置缓存时间，默认为-1表示永远缓存
+    cache-duration: -1
+
+server:
+  port: 8080
+  servlet:
+    context-path: /demo
+
+mybatis-plus:
+  # 配置Mapper.xml文件路径
+  mapper-locations: classpath:mapper/*.xml
+  # 配置实体类包路径
+  type-aliases-package: com.fengqi.example.business.entity
+  # 配置MyBatis-Plus全局策略
+  global-config:
+    db-config:
+      # 主键类型，AUTO自动增长
+      id-type: AUTO
+      # 表名前缀
+      table-prefix: t_
+      # 逻辑删除字段名
+      logic-delete-field: deleted
+      # 逻辑删除值
+      logic-delete-value: 1
+      # 逻辑未删除值
+      logic-not-delete-value: 0
+  # 配置MyBatis原生配置
+  configuration:
+    # 驼峰命名规则
+    map-underscore-to-camel-case: true
+    # 打印SQL日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 执行器类型
+    executor-type: SIMPLE
+
+# 日志配置
+logging:
+  level:
+    root: debug
+    com.fengqi.example: trace
+
+---
+# 测试环境配置
+spring:
+  config:
+    activate:
+      on-profile: test
+  
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  # SQL初始化配置
+  sql:
+    init:
+      mode: embedded  # 仅在嵌入式数据库时执行初始化脚本
+  # 国际化配置
+  messages:
+    # 设置缓存时间，默认为-1表示永远缓存
+    cache-duration: -1
+
+server:
+  port: 8081
+  servlet:
+    context-path: /demo
+
+mybatis-plus:
+  # 配置Mapper.xml文件路径
+  mapper-locations: classpath:mapper/*.xml
+  # 配置实体类包路径
+  type-aliases-package: com.fengqi.example.business.entity
+  # 配置MyBatis-Plus全局策略
+  global-config:
+    db-config:
+      # 主键类型，AUTO自动增长
+      id-type: AUTO
+      # 表名前缀
+      table-prefix: t_
+      # 逻辑删除字段名
+      logic-delete-field: deleted
+      # 逻辑删除值
+      logic-delete-value: 1
+      # 逻辑未删除值
+      logic-not-delete-value: 0
+  # 配置MyBatis原生配置
+  configuration:
+    # 驼峰命名规则
+    map-underscore-to-camel-case: true
+    # 打印SQL日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 日志配置
+logging:
+  level:
+    root: info
+    com.fengqi.example: info
+
+---
+# 生产环境配置
+spring:
+  config:
+    activate:
+      on-profile: prod
+  
+  datasource:
+    url: jdbc:mysql://mysql-prod:3306/fengqi_prod?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: prod_user
+    password: ${PROD_DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  # 国际化配置
+  messages:
+    # 设置缓存时间，生产环境设置为1小时
+    cache-duration: 3600s
+
+server:
+  port: 80
+  servlet:
+    context-path: /
+
+mybatis-plus:
+  # 配置Mapper.xml文件路径
+  mapper-locations: classpath:mapper/*.xml
+  # 配置实体类包路径
+  type-aliases-package: com.fengqi.example.business.entity
+  # 配置MyBatis-Plus全局策略
+  global-config:
+    db-config:
+      # 主键类型，AUTO自动增长
+      id-type: AUTO
+      # 表名前缀
+      table-prefix: t_
+      # 逻辑删除字段名
+      logic-delete-field: deleted
+      # 逻辑删除值
+      logic-delete-value: 1
+      # 逻辑未删除值
+      logic-not-delete-value: 0
+  # 配置MyBatis原生配置
+  configuration:
+    # 驼峰命名规则
+    map-underscore-to-camel-case: true
+    # 生产环境不打印SQL日志
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+    # 执行器类型
+    executor-type: REUSE
+    # 生产环境建议关闭自动映射未知列
+    auto-mapping-unknown-column-behavior: NONE
+
+# 日志配置
+logging:
+  level:
+    root: warn
+    com.fengqi.example: info
+  config:
+    classpath: logback-spring.xml

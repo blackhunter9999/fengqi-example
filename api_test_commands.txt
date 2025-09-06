@@ -1,0 +1,24 @@
+# API测试命令集合
+# =================
+
+## 浏览器中直接访问的URL
+# =====================
+
+# 1. 获取用户列表（浏览器中直接访问）
+http://localhost:8080/demo/api/user/list
+
+# 2. 获取用户详情（浏览器中直接访问）
+http://localhost:8080/demo/api/user/1      # admin用户
+http://localhost:8080/demo/api/user/2      # 普通用户
+
+# 3. 测试多语言功能（浏览器中直接访问）
+# 中文语言
+http://localhost:8080/demo/api/user/1?lang=zh_CN
+# 英文语言
+http://localhost:8080/demo/api/user/1?lang=en_US
+
+# 4. 测试不存在用户时的错误消息（浏览器中直接访问）
+# 中文错误消息
+http://localhost:8080/demo/api/user/999?lang=zh_CN
+# 英文错误消息
+http://localhost:8080/demo/api/user/999?lang=en_US
