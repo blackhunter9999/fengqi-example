@@ -185,4 +185,4 @@ logging:
     root: warn
     com.fengqi.example: info
   config:
-    classpath: logback-spring.xml
+    classpath: log4j2-spring.xml
