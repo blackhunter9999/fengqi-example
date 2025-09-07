@@ -3,9 +3,12 @@ package com.fengqi.example.common.exception;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * 自定义业务异常
- */
+/** 
+ * @Description 自定义业务异常
+ * @Author blackhunter 
+ * @Date 2025-09-07 
+ * @Version 1.0 
+ **/
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class BusinessException extends RuntimeException {

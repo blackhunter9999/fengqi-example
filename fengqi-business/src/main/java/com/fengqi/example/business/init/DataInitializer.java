@@ -13,10 +13,12 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 数据初始化类
- * 在应用启动时插入测试数据
- */
+/** 
+ * @Description 数据初始化类
+ * @Author blackhunter 
+ * @Date 2025-09-07 
+ * @Version 1.0 
+ **/
 @Component
 @Slf4j
 public class DataInitializer implements ApplicationRunner {

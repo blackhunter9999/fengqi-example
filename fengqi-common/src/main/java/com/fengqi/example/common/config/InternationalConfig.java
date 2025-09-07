@@ -13,10 +13,12 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import java.util.Locale;
 
-/**
- * 国际化配置类
- * 支持多语言切换
- */
+/** 
+ * @Description 国际化配置类
+ * @Author blackhunter 
+ * @Date 2025-09-07 
+ * @Version 1.0 
+ **/
 @Configuration
 public class InternationalConfig implements WebMvcConfigurer {
 

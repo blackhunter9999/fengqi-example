@@ -5,10 +5,12 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-/**
- * 集合工具类
- * 提供集合相关的通用操作方法
- */
+/** 
+ * @Description 集合工具类
+ * @Author blackhunter 
+ * @Date 2025-09-07 
+ * @Version 1.0 
+ **/
 public class CollectionUtils {
 
     /**

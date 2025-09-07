@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import jakarta.annotation.Resource;
 
-/**
- * 全局异常处理器
- */
+/** 
+ * @Description 全局异常处理器
+ * @Author blackhunter 
+ * @Date 2025-09-07 
+ * @Version 1.0 
+ **/
 @ControllerAdvice
 @ResponseBody
 @Slf4j

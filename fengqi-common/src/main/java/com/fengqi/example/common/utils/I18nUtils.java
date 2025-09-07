@@ -9,10 +9,12 @@ import org.springframework.stereotype.Component;
 import jakarta.annotation.Resource;
 import java.util.Locale;
 
-/**
- * 国际化工具类
- * 用于获取不同语言环境下的消息
- */
+/** 
+ * @Description 国际化工具类
+ * @Author blackhunter 
+ * @Date 2025-09-07 
+ * @Version 1.0 
+ **/
 @Component
 @Slf4j
 public class I18nUtils {

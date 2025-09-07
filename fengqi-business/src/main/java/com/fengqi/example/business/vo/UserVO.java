@@ -5,10 +5,12 @@ import lombok.Data;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-/**
- * 用户视图对象
- * 用于向前端返回用户信息，不包含敏感信息
- */
+/** 
+ * @Description 用户视图对象
+ * @Author blackhunter 
+ * @Date 2025-09-07 
+ * @Version 1.0 
+ **/
 @Data
 public class UserVO implements Serializable {
     private static final long serialVersionUID = 1L;

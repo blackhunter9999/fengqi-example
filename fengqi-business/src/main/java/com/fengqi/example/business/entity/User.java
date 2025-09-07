@@ -8,9 +8,12 @@ import lombok.Data;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-/**
- * 用户实体类
- */
+/** 
+ * @Description 用户实体类
+ * @Author blackhunter 
+ * @Date 2025-09-07 
+ * @Version 1.0 
+ **/
 @Data
 @TableName("t_user")
 public class User implements Serializable {

@@ -2,10 +2,12 @@ package com.fengqi.example.common.utils;
 
 import org.springframework.beans.BeanUtils;
 
-/**
- * Bean转换工具类
- * 提供对象之间的属性复制和转换功能
- */
+/** 
+ * @Description Bean转换工具类
+ * @Author blackhunter 
+ * @Date 2025-09-07 
+ * @Version 1.0 
+ **/
 public class BeanConvertUtils {
 
     /**

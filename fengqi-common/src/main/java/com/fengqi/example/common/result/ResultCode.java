@@ -1,8 +1,11 @@
 package com.fengqi.example.common.result;
 
-/**
- * 结果状态码枚举
- */
+/** 
+ * @Description 结果状态码枚举
+ * @Author blackhunter 
+ * @Date 2025-09-07 
+ * @Version 1.0 
+ **/
 public enum ResultCode {
     // 成功状态码
     SUCCESS(200, "success"),

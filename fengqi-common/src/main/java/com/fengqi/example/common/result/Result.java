@@ -10,9 +10,12 @@ import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
-/**
- * 统一结果返回类
- */
+/** 
+ * @Description 统一结果返回类
+ * @Author blackhunter 
+ * @Date 2025-09-07 
+ * @Version 1.0 
+ **/
 @Data
 @Slf4j
 @Component

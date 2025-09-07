@@ -16,10 +16,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
-/**
- * 表初始化器类
- * 在应用启动时检查表是否存在，不存在则创建
- */
+/** 
+ * @Description 表初始化器类
+ * @Author blackhunter 
+ * @Date 2025-09-07 
+ * @Version 1.0 
+ **/
 @Component
 @Slf4j
 @Order(Ordered.HIGHEST_PRECEDENCE)

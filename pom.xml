@@ -8,7 +8,7 @@
     <artifactId>fengqi-example</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>Spring Boot MyBatis-Plus Project</name>
+    <name>fengqi-example</name>
 
     <modules>
         <module>fengqi-common</module>

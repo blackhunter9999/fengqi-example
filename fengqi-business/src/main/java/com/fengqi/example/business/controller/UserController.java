@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * 用户控制器
- * 提供用户相关的HTTP接口
- */
+/** 
+ * @Description 用户控制器
+ * @Author blackhunter 
+ * @Date 2025-09-07 
+ * @Version 1.0 
+ **/
 @RestController
 @RequestMapping(Constants.API_USER_PREFIX)
 public class UserController {

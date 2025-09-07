@@ -1,8 +1,11 @@
 package com.fengqi.example.common.constant;
 
-/**
- * 系统常量类
- */
+/** 
+ * @Description 系统常量类
+ * @Author blackhunter 
+ * @Date 2025-09-07 
+ * @Version 1.0 
+ **/
 public class Constants {
 
     // ===================== HTTP状态码 =====================

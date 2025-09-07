@@ -10,10 +10,12 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
-/**
- * 日志配置类
- * 使用AOP记录请求和响应日志
- */
+/** 
+ * @Description 日志配置类
+ * @Author blackhunter 
+ * @Date 2025-09-07 
+ * @Version 1.0 
+ **/
 @Aspect
 @Component
 @Slf4j
